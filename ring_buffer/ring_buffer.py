@@ -40,12 +40,13 @@ class RingBuffer:
         # if not at cap jsut insert
         # if at cap then replace the oldest
         if len(self.data) == self.capacity:
-            if self.cur > self.capacity:
+            if self.cur == self.capacity -1:
+                self.data[self.cur] = item
                 self.cur = 0
-                self.data[self.cur] = item
             else:
-                self.cur += 1
                 self.data[self.cur] = item
+                self.cur += 1
+                
 
         else:
             self.data.append(item)
@@ -56,4 +57,5 @@ class RingBuffer:
 buffer = RingBuffer(5)
 for i in range(50):
     buffer.append(i)
+print(buffer.cur)
 print(buffer.get())

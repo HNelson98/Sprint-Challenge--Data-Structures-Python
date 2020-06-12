@@ -17,6 +17,7 @@ duplicates = []  # Return the list of duplicates in this data structure
 #     for name_2 in names_2:
 #         if name_1 == name_2:
 #             duplicates.append(name_1)
+#this is quadratic time?
 duplicates.append(str(sorted(set(names_1) & set(names_2))))
 
 end_time = time.time()
